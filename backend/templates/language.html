@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+{% extends "indexpage.html" %}
+{% block content %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="col-lg-12">
+        <div class="card">
+           <div class="card-body">
+           <div class="card-title">MOVIEGRAM LANGUAGE</div>
+           <hr>
+            <form method="post" action="{% url 'languagesave' %}">
+                {% csrf_token %}
+              <div class="form-group">
+            <label for="input-6">CATEGORY</label>
+            <select class="form-control" name="category" id="input-6">
+                        <option>SELECT CATEGORY</option>
+                                    {% for i in data %}
+                                    <option>{{i.CategoryName}}</option>
+                                    {% endfor %}
+                        </select>
+           </div>
+           <div class="form-group">
+            <label for="input-7">LANGUAGE</label>
+            <input type="text" class="form-control form-control-rounded" name="language" id="input-7" placeholder="Enter Language">
+           </div>
+           <div class="form-group">
+            <button type="submit" class="btn btn-light btn-round px-12"><i class="icon-lock"></i> Register</button>
+          </div>
+          </form>
+         </div>
+         </div>
+      </div>
+</body>
+</html>
+{% endblock %}
